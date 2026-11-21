@@ -348,9 +348,9 @@
       .cal-nav b{font-size:15.5px; text-transform:capitalize; text-align:center;}
       .cal-grid{display:grid; grid-template-columns:repeat(7, 1fr); gap:6px;}
       .cal-dow{font-size:11.5px; font-weight:700; color:var(--muted); text-align:center; padding:4px 0;}
-      .cal-day{background:var(--bg); border:1px solid var(--border); border-radius:10px; min-height:58px; padding:6px 4px; font-size:13px; font-weight:700; text-align:center; color:var(--text); cursor:pointer;}
+      .cal-day{background:var(--bg); border:1px solid var(--border); border-radius:10px; min-height:58px; padding:6px 4px; font-size:13px; font-weight:700; text-align:center; color:var(--text); cursor:pointer; min-width:0; overflow:hidden;}
       .cal-day .n{display:block; font-size:15px;}
-      .cal-day .c{display:block; font-size:11px; font-weight:600; color:var(--muted); line-height:1.35;}
+      .cal-day .c{display:block; font-size:11px; font-weight:600; color:var(--muted); line-height:1.35; overflow-wrap:anywhere;}
       .cal-day.sel{border-color:#fff;}
       .cal-day.today{outline:2px solid #fff; outline-offset:-2px;}
       .cal-day.empty{background:transparent; border-color:transparent; cursor:default;}
@@ -2298,7 +2298,7 @@
       var pinMode = "verify";
       function updateOwnerAccess(){
         var lock = document.getElementById("ownerLock"), cab = document.getElementById("ownerCabinet"), list = document.getElementById("ownerList");
-        if (!SETTINGS.pin){ lock.style.display = "none"; cab.style.display = ""; if (list) list.style.display = ""; ownerUnlocked = true; return; }
+        if (!SETTINGS.pin){ showPinCreate(); return; }
         if (ownerUnlocked){ lock.style.display = "none"; cab.style.display = ""; if (list) list.style.display = ""; }
         else {
           pinMode = "verify";
