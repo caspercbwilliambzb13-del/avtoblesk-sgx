@@ -2317,6 +2317,7 @@
         document.getElementById("pinError").style.display = "none";
         document.getElementById("ownerLock").style.display = "";
         document.getElementById("ownerCabinet").style.display = "none";
+        var lst = document.getElementById("ownerList"); if (lst) lst.style.display = "none";
         var pi = document.getElementById("pinInput"); pi.value = ""; pi.focus();
       }
       function bindPin(){
